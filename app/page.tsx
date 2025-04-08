@@ -54,7 +54,7 @@ export default function Home() {
       desc: "Agentic AI project using Anthropic's Model Context Protocol implementation where LLMs can be used as agents to complete tasks",
       tech: ["Next.js", "React", "Node.js", "LLMs","Anthropic", "Vercel"],
       url: "http://mcp-ai-music.vercel.app/",
-      github: "https://github.com/Kota1609/team-chat",
+      github: "https://github.com/Kota1609/MusicStore-Frontend",
       image: "/images/modelcontextprotocol-agenticAI.webp",
       alt: "Agentic AI Picture",
     },{
