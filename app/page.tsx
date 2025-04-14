@@ -28,51 +28,98 @@ import DotPattern from "@/components/ui/dot-pattern";
 import LetterPullup from "@/components/ui/letter-pullup";
 import MountainParallax from "@/components/ui/mountain-parallax";
 import SparklesText from "@/components/ui/sparkles-text";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import ShineEffect from "@/components/ui/shine-effect";
 import FlameCardEffect from "@/components/ui/flame-card-effect";
 
 // Create a client-side only component for floating elements
-const FloatingElements = dynamic(() => import('@/components/ui/floating-elements'), {
-  ssr: false
-});
+const FloatingElements = dynamic(
+  () => import("@/components/ui/floating-elements"),
+  {
+    ssr: false,
+  }
+);
 
 // Create a client-side only component for small floating elements
-const SmallFloatingElements = dynamic(() => import('@/components/ui/small-floating-elements'), {
-  ssr: false
-});
+const SmallFloatingElements = dynamic(
+  () => import("@/components/ui/small-floating-elements"),
+  {
+    ssr: false,
+  }
+);
 
 // Create a client-side only component for confetti button
-const DynamicConfettiButton = dynamic(() => import('@/components/ui/confetti'), {
-  ssr: false
-});
+const DynamicConfettiButton = dynamic(
+  () => import("@/components/ui/confetti"),
+  {
+    ssr: false,
+  }
+);
 
 export default function Home() {
   const projects = [
     {
       title: "Agentic AI - Model Context Protocol",
       desc: "Agentic AI project using Anthropic's Model Context Protocol implementation where LLMs can be used as agents to complete tasks",
-      tech: ["Next.js", "React", "Node.js", "LLMs","Anthropic", "Vercel"],
+      tech: ["Next.js", "React", "Node.js", "LLMs", "Anthropic", "Vercel"],
       url: "http://mcp-ai-music.vercel.app/",
       github: "https://github.com/Kota1609/MusicStore-Frontend",
       image: "/images/modelcontextprotocol-agenticAI.webp",
       alt: "Agentic AI Picture",
-    },{
+    },
+    {
+      title: "ProtocolPulse Agentic AI",
+      desc: "Advanced Agentic AI research tool that generates comprehensive, structured analysis reports on blockchain protocols and DeFi platforms using AI",
+      tech: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Python",
+        "FastAPI",
+        "OpenAI",
+        "Google Gemini",
+        "LangGraph",
+      ],
+      url: "https://protocolpulse-ai.onrender.com/",
+      github: "https://github.com/Kota1609",
+      image: "/images/protocolpulse-ai.webp",
+      alt: "ProtocolPulse AI",
+    },
+    {
       title: "UNT Course Guide",
       desc: "Real-time UNT class availability tracker with AI Course ChatBot",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Pinecone", "Airtable", "OpenAI", "Vercel"],
+      tech: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Pinecone",
+        "Airtable",
+        "OpenAI",
+        "Vercel",
+      ],
       url: "https://unt-course-guide.vercel.app/",
       github: "https://github.com/Kota1609/UNT-course-guide",
       image: "/images/UNT-couse-guide.webp",
       alt: "UNT Course Guide",
     },
-    
+
     {
       title: "Gen AI UNT",
       desc: "UNT Gen AI application implementation using AWS, ECR, Docker, Langchain, and Huggingface",
-      tech: ["Python", "AWS", "Docker", "Langchain", "Huggingface", "Llama", "OpenAI","LLMs","Finetuning"],
+      tech: [
+        "Python",
+        "AWS",
+        "Docker",
+        "Langchain",
+        "Huggingface",
+        "Llama",
+        "OpenAI",
+        "LLMs",
+        "Finetuning",
+      ],
       url: "https://github.com/Kota1609/RAG-With-AWS-Lambda-ECR-Docker-Langchain-Huggingface",
-      github: "https://github.com/Kota1609/RAG-With-AWS-Lambda-ECR-Docker-Langchain-Huggingface",
+      github:
+        "https://github.com/Kota1609/RAG-With-AWS-Lambda-ECR-Docker-Langchain-Huggingface",
       image: "/images/rag-aws.webp",
       alt: "Gen AI UNT",
     },
@@ -145,35 +192,38 @@ export default function Home() {
             </div>
 
             <div className="flex items-center gap-1 sm:gap-4">
-              {["About", "Projects", "Work Experience", "Contact"].map((item) => (
-                <motion.div
-                  key={item}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 10,
-                  }}
-                >
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="rounded-full hover:bg-[#ff4500]/20 text-[#ff4500] hover:text-[#ff8c00] transition-all duration-300 px-2 sm:px-4"
-                    onClick={() => {
-                      const targetId = item === "Work Experience" 
-                        ? "experience" 
-                        : item.toLowerCase().replace(" ", "-");
-                      const element = document.getElementById(targetId);
-                      if (element) {
-                        element.scrollIntoView({ behavior: "smooth" });
-                      }
+              {["About", "Projects", "Work Experience", "Contact"].map(
+                (item) => (
+                  <motion.div
+                    key={item}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 10,
                     }}
                   >
-                    {item}
-                  </Button>
-                </motion.div>
-              ))}
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="rounded-full hover:bg-[#ff4500]/20 text-[#ff4500] hover:text-[#ff8c00] transition-all duration-300 px-2 sm:px-4"
+                      onClick={() => {
+                        const targetId =
+                          item === "Work Experience"
+                            ? "experience"
+                            : item.toLowerCase().replace(" ", "-");
+                        const element = document.getElementById(targetId);
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }}
+                    >
+                      {item}
+                    </Button>
+                  </motion.div>
+                )
+              )}
             </div>
           </div>
         </nav>
@@ -369,12 +419,19 @@ export default function Home() {
               className="space-y-6"
             >
               <p className="text-lg leading-relaxed text-zinc-700">
-                With over 5 years of professional experience, I am a driven Full Stack Engineer adept at architecting scalable microservices and developing cutting-edge AI-powered applications. Holding a Master's in Computer Science, my expertise spans backend, frontend, cloud infrastructure, and AI technologies, enabling me to deliver robust, high-performance solutions across diverse domains.
+                With over 5 years of professional experience, I am a driven Full
+                Stack Engineer adept at architecting scalable microservices and
+                developing cutting-edge AI-powered applications. Holding a
+                Master's in Computer Science, my expertise spans backend,
+                frontend, cloud infrastructure, and AI technologies, enabling me
+                to deliver robust, high-performance solutions across diverse
+                domains.
               </p>
               <p className="text-lg leading-relaxed text-zinc-700">
-                Seeking full-time roles in Software Engineering, Generative AI, AI/ML, or Cloud Computing. Let's connect and build the future of technology together!
+                Seeking full-time roles in Software Engineering, Generative AI,
+                AI/ML, or Cloud Computing. Let's connect and build the future of
+                technology together!
               </p>
-
             </motion.div>
 
             <div className="relative w-full h-[450px]">
@@ -414,7 +471,10 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-white relative overflow-hidden">
+      <section
+        id="projects"
+        className="py-20 bg-white relative overflow-hidden"
+      >
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#ff4500]/5 via-[#ff8c00]/5 to-[#ff4500]/5" />
@@ -459,12 +519,12 @@ export default function Home() {
               >
                 <Card className="h-full bg-white border-[#ff4500]/10 hover:border-[#ff4500]/30 transition-all duration-300 overflow-hidden">
                   <CardContent className="p-0">
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-56 overflow-hidden">
                       <Image
                         src={project.image}
                         alt={project.alt}
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="object-cover object-center group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
                     <div className="p-6">
@@ -488,7 +548,11 @@ export default function Home() {
                           <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 10,
+                            }}
                           >
                             <Button
                               asChild
@@ -511,7 +575,11 @@ export default function Home() {
                           <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 10,
+                            }}
                           >
                             <Button
                               asChild
@@ -541,7 +609,10 @@ export default function Home() {
       </section>
 
       {/* Work Experience Section */}
-      <section id="experience" className="py-20 relative bg-gradient-to-b from-white via-[#fff5f0] to-white">
+      <section
+        id="experience"
+        className="py-20 relative bg-gradient-to-b from-white via-[#fff5f0] to-white"
+      >
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#ff4500]/5 via-[#ff8c00]/5 to-[#ff4500]/5" />
@@ -583,10 +654,14 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                <h3 className="text-xl font-bold text-[#ff4500]">Generative AI Engineer</h3>
+                <h3 className="text-xl font-bold text-[#ff4500]">
+                  Generative AI Engineer
+                </h3>
                 <span className="text-zinc-600">Feb 2024 - Present</span>
               </div>
-              <p className="text-zinc-700 mt-2">University of North Texas - Denton, TX, USA</p>
+              <p className="text-zinc-700 mt-2">
+                University of North Texas - Denton, TX, USA
+              </p>
             </motion.div>
 
             <motion.div
@@ -598,14 +673,16 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                <h3 className="text-xl font-bold text-[#ff4500]">Software Engineer Intern</h3>
+                <h3 className="text-xl font-bold text-[#ff4500]">
+                  Software Engineer Intern
+                </h3>
                 <span className="text-zinc-600">May 2024 - Aug 2024</span>
               </div>
               <p className="text-zinc-700 mt-2">
                 Idaho National Lab (Nuclear) - Idaho Falls, ID, USA
-                <a 
-                  href="https://inl.gov" 
-                  target="_blank" 
+                <a
+                  href="https://inl.gov"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="ml-2 text-[#ff4500] hover:text-[#ff8c00] transition-colors"
                 >
@@ -623,14 +700,16 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                <h3 className="text-xl font-bold text-[#ff4500]">Software Engineer</h3>
+                <h3 className="text-xl font-bold text-[#ff4500]">
+                  Software Engineer
+                </h3>
                 <span className="text-zinc-600">Jan 2022 - July 2023</span>
               </div>
               <p className="text-zinc-700 mt-2">
                 Juspay (FinTech) - Bangalore, India
-                <a 
-                  href="https://juspay.in" 
-                  target="_blank" 
+                <a
+                  href="https://juspay.in"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="ml-2 text-[#ff4500] hover:text-[#ff8c00] transition-colors"
                 >
@@ -648,14 +727,16 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
-                <h3 className="text-xl font-bold text-[#ff4500]">Software Engineer</h3>
+                <h3 className="text-xl font-bold text-[#ff4500]">
+                  Software Engineer
+                </h3>
                 <span className="text-zinc-600">July 2019 - Dec 2021</span>
               </div>
               <p className="text-zinc-700 mt-2">
                 Clear Exam (EdTech) - Jaipur, India
-                <a 
-                  href="https://www.cleariitmedical.com/" 
-                  target="_blank" 
+                <a
+                  href="https://www.cleariitmedical.com/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="ml-2 text-[#ff4500] hover:text-[#ff8c00] transition-colors"
                 >
@@ -738,7 +819,10 @@ export default function Home() {
                   variant="outline"
                   className="bg-[#ff4500]/10 border-[#ff4500]/20 text-[#ff4500] hover:bg-[#ff4500]/20 hover:border-[#ff4500]/30 transition-colors duration-300 rounded-full text-lg px-6 py-2"
                 >
-                  <a href="mailto:kotasc18@gmail.com" className="flex items-center">
+                  <a
+                    href="mailto:kotasc18@gmail.com"
+                    className="flex items-center"
+                  >
                     <Mail className="w-5 h-5 mr-2" />
                     Email Me
                   </a>
@@ -754,7 +838,10 @@ export default function Home() {
                   variant="outline"
                   className="bg-[#ff4500]/10 border-[#ff4500]/20 text-[#ff4500] hover:bg-[#ff4500]/20 hover:border-[#ff4500]/30 transition-colors duration-300 rounded-full text-lg px-6 py-2"
                   onClick={() =>
-                    window.open("https://linkedin.com/in/kota-srichandan", "_blank")
+                    window.open(
+                      "https://linkedin.com/in/kota-srichandan",
+                      "_blank"
+                    )
                   }
                 >
                   <Linkedin className="w-5 h-5 mr-2" />
@@ -770,7 +857,9 @@ export default function Home() {
                 <Button
                   variant="outline"
                   className="bg-[#ff4500]/10 border-[#ff4500]/20 text-[#ff4500] hover:bg-[#ff4500]/20 hover:border-[#ff4500]/30 transition-colors duration-300 rounded-full text-lg px-6 py-2"
-                  onClick={() => window.open("https://github.com/Kota1609", "_blank")}
+                  onClick={() =>
+                    window.open("https://github.com/Kota1609", "_blank")
+                  }
                 >
                   <Github className="w-5 h-5 mr-2" />
                   GitHub
@@ -816,7 +905,6 @@ export default function Home() {
             </a>{" "}
             ,{" "}
             <a
-
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-[#ff4500] hover:text-[#ff8c00] transition-colors"
@@ -833,9 +921,7 @@ export default function Home() {
             </a>
           </p>
         </div>
-        <motion.div
-
-        >
+        <motion.div>
           <motion.div className="inline-block" transition={{ duration: 0.2 }}>
             <DynamicConfettiButton
               className="bg-transparent hover:bg-transparent p-0 border-none shadow-none"
@@ -849,9 +935,7 @@ export default function Home() {
                 scalar: 1,
                 colors: ["#ff4500", "#ff8c00"],
               }}
-            >
-
-            </DynamicConfettiButton>
+            ></DynamicConfettiButton>
           </motion.div>
         </motion.div>
       </footer>
